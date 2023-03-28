@@ -14,8 +14,23 @@ use App\Models\Listing;
 |
 */
 
+// index       - show all listings
+// show        - show single listing
+// create      - Show form to create new listing
+// store       - Store new listing
+// edit        - Show  form to create new listing
+// update      - Update new listing
+// destroy     - Delete listing
+
 //All listings
 Route::get('/', [ListingController::class, 'index']);
+
+// Show Create Form
+Route::get('/listings/create', [ListingController::class, 'create']);
+
+// Store Listing Data
+Route::post('/listings', [ListingController::class, 'store']);
+
 
 
 //Single Listing
