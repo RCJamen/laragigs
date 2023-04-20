@@ -72,8 +72,15 @@ class ListingController extends Controller
         if ($request->hasFile('logo')) {
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
-        $listing->create($formFields);
+        $listing->update($formFields);
 
         return back()->with('message', 'Listing Updated Successfully');
+    }
+
+    // Delete
+    public function delete(Listing $listing)
+    {
+        $listing->delete();
+        return redirect('/')->with('message', 'Listing Deleted Successfully');
     }
 }
